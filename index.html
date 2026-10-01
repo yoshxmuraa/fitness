@@ -6,17 +6,15 @@
     <title>IRON CORE — фитнес клуб</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Inter', sans-serif;
             background: #0a0a0a;
             color: #f0ece6;
             line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
         }
 
         .container {
@@ -25,8 +23,9 @@
             padding: 0 24px;
         }
 
+        /* ===== HEADER ===== */
         header {
-            padding: 20px 0;
+            padding: 16px 0;
             border-bottom: 2px solid #00e676;
             background: #0a0a0a;
             position: sticky;
@@ -38,30 +37,36 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 16px;
         }
 
         .logo {
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 900;
             color: #00e676;
             letter-spacing: 3px;
             text-transform: uppercase;
+            white-space: nowrap;
         }
-        .logo span {
-            color: #fff;
-        }
+        .logo span { color: #fff; }
 
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 24px;
+            justify-content: flex-end;
+        }
         nav a {
             color: #8a827a;
             text-decoration: none;
-            margin-left: 32px;
             font-weight: 700;
+            font-size: 15px;
             transition: color 0.2s;
+            white-space: nowrap;
         }
-        nav a:hover {
-            color: #00e676;
-        }
+        nav a:hover { color: #00e676; }
 
+        /* ===== HERO ===== */
         .hero {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -72,14 +77,12 @@
         }
 
         .hero h1 {
-            font-size: 64px;
+            font-size: clamp(32px, 6vw, 64px);
             font-weight: 900;
             line-height: 1.1;
             text-transform: uppercase;
         }
-        .hero h1 .green {
-            color: #00e676;
-        }
+        .hero h1 .green { color: #00e676; }
 
         .hero p {
             font-size: 18px;
@@ -92,7 +95,6 @@
             background: #00e676;
             color: #0a0a0a;
             padding: 18px 48px;
-            border-radius: 0;
             text-decoration: none;
             font-weight: 900;
             text-transform: uppercase;
@@ -102,13 +104,10 @@
             cursor: pointer;
             font-size: 16px;
         }
-        .btn:hover {
-            background: #00c853;
-        }
+        .btn:hover { background: #00c853; }
 
         .hero-img {
             background: #141414;
-            border-radius: 0;
             height: 350px;
             display: flex;
             align-items: center;
@@ -118,6 +117,7 @@
             border: 1px solid #2a2420;
         }
 
+        /* ===== ADVANTAGES ===== */
         .advantages {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -127,26 +127,14 @@
             border-bottom: 1px solid #2a2420;
             text-align: center;
         }
-        .advantages .icon {
-            font-size: 48px;
-            display: block;
-            margin-bottom: 12px;
-        }
-        .advantages h3 {
-            color: #00e676;
-            font-size: 20px;
-            text-transform: uppercase;
-        }
-        .advantages p {
-            color: #8a827a;
-            font-size: 14px;
-        }
+        .advantages .icon { font-size: 48px; display: block; margin-bottom: 12px; }
+        .advantages h3 { color: #00e676; font-size: 20px; text-transform: uppercase; }
+        .advantages p { color: #8a827a; font-size: 14px; }
 
-        .programs {
-            padding: 80px 0;
-        }
+        /* ===== PROGRAMS ===== */
+        .programs { padding: 80px 0; }
         .programs h2 {
-            font-size: 40px;
+            font-size: clamp(28px, 4vw, 40px);
             font-weight: 900;
             text-transform: uppercase;
             color: #fff;
@@ -154,9 +142,7 @@
             text-align: center;
             margin-bottom: 48px;
         }
-        .programs h2 .green {
-            color: #00e676;
-        }
+        .programs h2 .green { color: #00e676; }
 
         .program-grid {
             display: grid;
@@ -181,9 +167,7 @@
             margin-bottom: 8px;
             text-transform: uppercase;
         }
-        .program-card p {
-            color: #8a827a;
-        }
+        .program-card p { color: #8a827a; }
         .program-card .price {
             display: block;
             margin-top: 14px;
@@ -192,6 +176,7 @@
             font-size: 18px;
         }
 
+        /* ===== SCHEDULE ===== */
         .schedule {
             background: #141414;
             padding: 60px 0;
@@ -199,16 +184,14 @@
             border-bottom: 1px solid #2a2420;
         }
         .schedule h2 {
-            font-size: 36px;
+            font-size: clamp(26px, 4vw, 36px);
             font-weight: 900;
             text-transform: uppercase;
             color: #fff;
             text-align: center;
             margin-bottom: 32px;
         }
-        .schedule h2 .green {
-            color: #00e676;
-        }
+        .schedule h2 .green { color: #00e676; }
 
         .schedule-grid {
             display: grid;
@@ -227,22 +210,21 @@
             color: #00e676;
             font-weight: 700;
             font-size: 16px;
+            display: block;
+            margin-bottom: 4px;
         }
 
-        .reviews {
-            padding: 80px 0;
-        }
+        /* ===== REVIEWS ===== */
+        .reviews { padding: 80px 0; }
         .reviews h2 {
-            font-size: 36px;
+            font-size: clamp(26px, 4vw, 36px);
             font-weight: 900;
             text-transform: uppercase;
             color: #fff;
             text-align: center;
             margin-bottom: 48px;
         }
-        .reviews h2 .green {
-            color: #00e676;
-        }
+        .reviews h2 .green { color: #00e676; }
 
         .reviews-grid {
             display: grid;
@@ -264,22 +246,21 @@
             display: block;
         }
 
+        /* ===== FORM ===== */
         .form-section {
             background: #141414;
             padding: 60px 0;
             border-top: 1px solid #2a2420;
         }
         .form-section h2 {
-            font-size: 36px;
+            font-size: clamp(26px, 4vw, 36px);
             font-weight: 900;
             text-transform: uppercase;
             color: #fff;
             text-align: center;
             margin-bottom: 32px;
         }
-        .form-section h2 .green {
-            color: #00e676;
-        }
+        .form-section h2 .green { color: #00e676; }
 
         .form-grid {
             max-width: 500px;
@@ -296,13 +277,10 @@
             font-size: 16px;
             outline: none;
             transition: border-color 0.2s;
+            width: 100%;
         }
-        .form-grid input:focus {
-            border-color: #00e676;
-        }
-        .form-grid input::placeholder {
-            color: #4a3f38;
-        }
+        .form-grid input:focus { border-color: #00e676; }
+        .form-grid input::placeholder { color: #4a3f38; }
         .form-grid .btn-submit {
             background: #00e676;
             color: #0a0a0a;
@@ -314,9 +292,7 @@
             transition: 0.2s;
             font-size: 16px;
         }
-        .form-grid .btn-submit:hover {
-            background: #00c853;
-        }
+        .form-grid .btn-submit:hover { background: #00c853; }
 
         footer {
             padding: 30px 0;
@@ -326,42 +302,36 @@
             color: #4a3f38;
         }
 
-        @media (max-width: 800px) {
+        /* ===== ADAPTIVE ===== */
+        @media (max-width: 900px) {
             .hero {
                 grid-template-columns: 1fr;
                 text-align: center;
+                padding: 48px 0;
+                gap: 32px;
+                min-height: auto;
             }
-            .hero p {
-                margin-left: auto;
-                margin-right: auto;
-            }
-            .header-inner {
-                flex-direction: column;
-                gap: 16px;
-            }
-            nav a {
-                margin-left: 16px;
-                font-size: 14px;
-            }
-            .hero h1 {
-                font-size: 40px;
-            }
+            .hero p { margin-left: auto; margin-right: auto; }
+            .hero h1 { font-size: clamp(28px, 8vw, 40px); }
+            .hero-img { height: 220px; }
+            .btn { width: 100%; max-width: 340px; padding: 16px 24px; }
         }
 
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 28px;
-            }
-            nav a {
-                margin-left: 10px;
-                font-size: 12px;
-            }
-            .program-grid {
-                grid-template-columns: 1fr;
-            }
-            .reviews-grid {
-                grid-template-columns: 1fr;
-            }
+        @media (max-width: 600px) {
+            .container { padding: 0 16px; }
+            header { padding: 12px 0; }
+            .header-inner { flex-direction: column; gap: 10px; }
+            nav { justify-content: center; gap: 6px 16px; }
+            nav a { font-size: 13px; }
+            .logo { font-size: 20px; letter-spacing: 2px; }
+            .advantages { padding: 40px 0; gap: 24px; }
+            .advantages .icon { font-size: 36px; }
+            .programs, .reviews { padding: 48px 0; }
+            .schedule { padding: 40px 0; }
+            .hero-img { height: 180px; }
+            .btn { font-size: 14px; }
+            .form-section { padding: 40px 0; }
+            .form-grid input { padding: 14px 16px; font-size: 15px; }
         }
 
         .fade-in {
